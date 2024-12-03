@@ -1,131 +1,112 @@
-import { Box, Button, styled, Typography } from "@mui/material";
+import { Box, Button, Grid, styled, Typography } from "@mui/material";
 import React from "react";
-import johnteacher from "../media/johnteacher.jpg";
-import image from "../media/image.png";
+import image from "../media/image.png"; // Your profile picture
 
 const Hero = () => {
+  // Styled Components
   const CustomButton = styled(Button)(({ theme }) => ({
-    border: "2px solid #1976D2",
-    backgroundColor: "transparent",
-    color: "#1976D2",
-    padding: "10px 20px",
-    borderRadius: "25px",
-    fontSize: "16px",
-    fontWeight: "bold",
+    backgroundColor: "#1976D2",
+    color: "white",
+    padding: "14px 30px",
+    borderRadius: "30px",
+    fontSize: "18px",
+    fontWeight: 700,
     textTransform: "uppercase",
     letterSpacing: "1px",
+    transition: "background-color 0.3s ease",
     "&:hover": {
-      background: "#1976D2",
-      color: "white",
+      backgroundColor: "#1565b2",
     },
+    margin: theme.spacing(1),
   }));
 
   const CustomTitle = styled(Typography)(({ theme }) => ({
-    color: "#FFFFFF",
-    fontSize: "48px",
-    fontWeight: "bold",
-    lineHeight: "1.2",
-    marginBottom: "20px",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "36px",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "24px",
-    },
+    color: "#fff", // Updated to white for better contrast
+    fontSize: { xs: "40px", sm: "56px", md: "70px" }, // Larger text sizes
+    fontWeight: 900,
+    lineHeight: 1.2,
+    marginBottom: theme.spacing(2),
   }));
 
   const CustomSubtitle = styled(Typography)(({ theme }) => ({
-    color: "rgba(255, 255, 255, 0.8)",
-    fontSize: "18px",
-    lineHeight: "1.5",
-    marginBottom: "30px",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "16px",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "14px",
-    },
+    color: "#ddd", // Light grey for contrast with background
+    fontSize: { xs: "20px", sm: "24px", md: "28px" }, // Larger subtitle font
+    fontWeight: 600,
+    lineHeight: 1.5,
+    marginBottom: theme.spacing(4),
   }));
 
-  const CustomImageWrapper = styled(Box)({
+  const CustomImage = styled("img")({
+    width: "100%",
+    maxWidth: "550px", // Reduced size slightly for better balance
+    height: "auto",
+    aspectRatio: "4 / 3", // Maintain proportion
+    borderRadius: "20px", // Rounded corners for better design
+    objectFit: "cover",
+    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)", // Subtle shadow for depth
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
+  });
+
+  const HeroContainer = styled(Box)(({ theme }) => ({
+    padding: theme.spacing(10, 2),
+    minHeight: "100vh", // Keeps full viewport height
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column", // Stack images vertically
-    marginBottom: "30px",
-  });
+    background: "linear-gradient(135deg, #0A192F, #1E293B)", // Subtle dark gradient
+  }));
 
-  const CustomImage = styled("img")({
-    width: "150px",
-    height: "150px",
-    borderRadius: "50%", // Circular shape
-    objectFit: "cover",
-    marginBottom: "15px",
-  });
+  const ContentWrapper = styled(Box)(({ theme }) => ({
+    maxWidth: "1200px", // Maintains alignment with other sections
+    margin: "0 auto",
+    width: "100%",
+  }));
 
-  const AdditionalImage = styled(CustomImage)({
-    width: "100px",
-    height: "100px",
-  });
-
-  const CustomButtonWrapper = styled(Box)({
-    display: "flex",
-    justifyContent: "center",
-    gap: "20px", // Adjust the spacing between buttons
-  });
-
-  // Function to handle the "Contact Me" button click
+  // Button Handlers
   const handleContactButtonClick = () => {
-    // Use the `window.location.href` to open the default email client
     window.location.href = "mailto:ofemjohn@gmail.com";
   };
 
-  // Function to handle the "View CV" button click
   const handleCVButtonClick = () => {
-    // Use the `window.location.href` to open the CV link
-    window.location.href = "https://docs.google.com/document/d/1WCzBquLXU0S54Hk6KvW9RxN2kquMsY1g/edit?usp=sharing&ouid=106434970206223535185&rtpof=true&sd=true"; // Replace with actual CV link
+    window.location.href =
+      "https://docs.google.com/document/d/1WCzBquLXU0S54Hk6KvW9RxN2kquMsY1g/edit?usp=sharing&ouid=106434970206223535185&rtpof=true&sd=true";
   };
 
   return (
-    <Box
-      sx={{
-        padding: "50px 20px",
-        maxWidth: "1200px",
-        margin: "0 auto",
-      }}
-      id="home"
-    >
-      <CustomTitle>
-        I am a{" "}
-        <span style={{ color: "#1976D2" }}>
-          fullstack Software Engineer
-        </span>{" "}
-        with a background in{" "}
-        <span style={{ color: "#1976D2" }}>
-          Petroleum Engineering
-        </span>{" "}
-      </CustomTitle>
+    <HeroContainer>
+      <ContentWrapper>
+        <Grid container spacing={4} alignItems="center">
+          {/* Left Section - Text */}
+          <Grid item xs={12} md={6}>
+            <CustomTitle>
+              I am a{" "}
+              <span style={{ color: "#00C7FF" }}>
+                Fullstack Software Engineer
+              </span>{" "}
+              with a background in{" "}
+              <span style={{ color: "#00C7FF" }}>Petroleum Engineering</span>
+            </CustomTitle>
+            <CustomSubtitle>
+              Leveraging my skills in both software engineering and petroleum
+              engineering to create innovative solutions.
+            </CustomSubtitle>
+            <Box display="flex" gap={2}>
+              <CustomButton onClick={handleContactButtonClick}>
+                Contact Me
+              </CustomButton>
+              <CustomButton onClick={handleCVButtonClick}>View CV</CustomButton>
+            </Box>
+          </Grid>
 
-      <CustomSubtitle>
-        Leveraging my skills in both software engineering and petroleum
-        engineering to create innovative solutions.
-      </CustomSubtitle>
-
-      <CustomImageWrapper>
-        <CustomImage src={johnteacher} alt="John Teacher" />
-        <AdditionalImage src={image} alt="Additional Image" />
-      </CustomImageWrapper>
-
-      <CustomButtonWrapper>
-        {/* Attach the onClick event to the handleContactButtonClick function */}
-        <CustomButton onClick={handleContactButtonClick}>
-          Contact Me
-        </CustomButton>
-        <CustomButton onClick={handleCVButtonClick}>
-          View CV
-        </CustomButton>
-      </CustomButtonWrapper>
-    </Box>
+          {/* Right Section - Image */}
+          <Grid item xs={12} md={6}>
+            <CustomImage src={image} alt="Profile Picture" />
+          </Grid>
+        </Grid>
+      </ContentWrapper>
+    </HeroContainer>
   );
 };
 

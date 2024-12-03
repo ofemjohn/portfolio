@@ -32,7 +32,7 @@ const About = () => {
     width: "15%",
     display: "block",
     "&:hover": {
-      border: "3px solid #00C7FF",
+      border: "3px solid #FF5733",
     },
     [theme.breakpoints.down("md")]: {
       width: "50%",
@@ -44,79 +44,102 @@ const About = () => {
 
   const HandleEmail = () => {
     window.location.href = "mailto:ofemjohn@gmail.com";
-  }
+  };
 
   return (
-    <Box sx={{ maxWidth: "1200px", my: 10, padding: 3, mx: "auto" }} id="about">
-      <CustomTitleBox
-        sx={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",
-        }}
-      >
-        <Typography
-          variant="h4"
-          style={{ color: "white", textAlign: "center" }}
-        >
-          What people say about my work!
-        </Typography>
+    <Box
+      sx={{
+        background: "linear-gradient(135deg, #FF5733, #FFC300, #FF5733)", // Vibrant gradient
+        py: 10,
+        px: 3,
+      }}
+      id="about"
+    >
+      <Box sx={{ maxWidth: "1200px", mx: "auto" }}>
+        {/* Title Section */}
+        <CustomTitleBox>
+          <Typography
+            variant="h4"
+            style={{
+              color: "#ffffff", // White text for contrast
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
+            What people say about my work!
+          </Typography>
+          <div
+            style={{
+              height: "5px",
+              backgroundColor: "#FF5733",
+              width: "50%",
+              border: 0,
+              borderRadius: "25px",
+            }}
+          ></div>
+        </CustomTitleBox>
+
+        {/* Testimonials Section */}
+        <CustomBox sx={{ my: 7 }}>
+          <Testimonial
+            text="Ofem John's work is nothing short of exceptional. As the Director of Dyslexia Foundations Nigeria, I have had the privilege of witnessing his commitment to excellence. His innovative approach to problem-solving and his dedication to creating meaningful impact are truly commendable."
+            author={{
+              name: "Pastor Ben Arikpo",
+              title: "Director, Dyslexia Foundations, Nigeria",
+            }}
+          />
+          <Testimonial
+            text="Working with this talented individual has been an absolute pleasure. His creativity knows no bounds, and his work as a digital creator is truly commendable. I highly recommend him for his exceptional skills and unwavering dedication to excellence."
+            author={{
+              name: "Mr. Peter Ufana",
+              title: "Digital Creator and Social Media Analyst, Nigeria",
+            }}
+          />
+          <Testimonial
+            text="I am thoroughly impressed with the technical prowess and problem-solving skills demonstrated by this remarkable software engineer. His ability to navigate complex challenges and deliver innovative solutions is truly commendable."
+            author={{
+              name: "Ike Mathebula",
+              title: "IT Specialist and Software Engineer, South Africa",
+            }}
+          />
+        </CustomBox>
+
+        {/* Divider */}
         <div
           style={{
             height: "5px",
-            backgroundColor: "#008080",
-            width: "50%",
+            backgroundColor: "#FFC300",
+            width: "100%",
+            mx: "auto",
             border: 0,
             borderRadius: "25px",
           }}
         ></div>
-      </CustomTitleBox>
 
-      <CustomBox sx={{ my: 7 }}>
-        <Testimonial
-          text="Ofem John's work is nothing short of exceptional. As the Director of Dyslexia Foundations Nigeria, I have had the privilege of witnessing his commitment to excellence. His innovative approach to problem-solving and his dedication to creating meaningful impact are truly commendable. Ofem's work reflects not only technical prowess but also a genuine passion for making a positive difference. I wholeheartedly recommend him for any endeavor that requires a blend of skill, creativity, and a heart for impactful results."
-          author={{ name: "Pastor Ben Arikpo", title: "Director, Dyslexia Foundations, Nigeria" }}
-        />
-        <Testimonial
-          text="Working with this talented individual has been an absolute pleasure. His creativity knows no bounds, and his work as a digital creator is truly commendable. As a social media analyst, he brings a unique perspective that adds tremendous value to any project. I highly recommend him for his exceptional skills and unwavering dedication to excellence."
-          author={{ name: "Mr. Peter Ufana", title: "Digital Creator and Social Media Analyst, Nigeria" }}
-        />
-        <Testimonial
-          text="I am thoroughly impressed with the technical prowess and problem-solving skills demonstrated by this remarkable software engineer. His ability to navigate complex challenges and deliver innovative solutions is truly commendable. It's evident that he is passionate about his work and dedicated to staying at the forefront of technology. I highly recommend him for any software-related project."
-          author={{ name: "Ike Mathebula", title: "IT Specialist and Software Engineer, South Africa" }}
-        />
-
-      </CustomBox>
-
-      <div
-        style={{
-          height: "5px",
-          backgroundColor: "#008080",
-          width: "100%",
-          mx: "auto",
-          border: 0,
-          borderRadius: "25px",
-        }}
-      ></div>
-
-      <Typography
-        variant="h4"
-        sx={{ color: "white", mt: 12, textAlign: "center" }}
-      >
-        Interested in Working Together?
-      </Typography>
-      <CustomButton
-        variant="outlined"
-        onClick={HandleEmail}
-        sx={{
-          mx: "auto",
-          mt: 3,
-          mb: 8,
-        }}
-      >
-        Get in Touch
-      </CustomButton>
+        {/* Call to Action */}
+        <Typography
+          variant="h4"
+          sx={{
+            color: "#ffffff",
+            mt: 12,
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
+        >
+          Interested in Working Together?
+        </Typography>
+        <CustomButton
+          variant="outlined"
+          onClick={HandleEmail}
+          sx={{
+            mx: "auto",
+            mt: 3,
+            mb: 8,
+          }}
+        >
+          Get in Touch
+        </CustomButton>
+      </Box>
     </Box>
   );
 };

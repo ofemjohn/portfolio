@@ -1,4 +1,4 @@
-import { Divider } from "@mui/material";
+import React from "react"; // Add this line
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";

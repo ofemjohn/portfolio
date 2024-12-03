@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
 import React from "react";
+import { Box, Typography } from "@mui/material";
 
 const Icon = ({ name, src }) => {
   return (
@@ -8,11 +8,16 @@ const Icon = ({ name, src }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        mb: 3,
+        justifyContent: "center",
+        textAlign: "center",
+        p: 2,
       }}
     >
-      <img src={src} height="40px" width="40px" />
-      <Typography variant="body1" sx={{ color: "white", mt: 1, color: "gray" }}>
+      <img src={src} alt={name} style={{ width: "80px", height: "80px" }} />
+      <Typography
+        variant="body1"
+        sx={{ color: "#333", mt: 1, fontWeight: 500 }}
+      >
         {name}
       </Typography>
     </Box>

@@ -6,35 +6,54 @@ import Stack from "./Stack";
 
 const Experience = () => {
   return (
-    <Box sx={{ maxWidth: "1300px", mx: "auto", my: 12 }} id="experience">
-      <Typography
-        variant="h4"
-        sx={{ color: "white", textAlign: "center", mb: 2 }}
-      >
-        Let's take a look at what I've{" "}
-        <span style={{ color: "rgba(0,199,255,255)" }}>built</span> so far
-      </Typography>
+    <Box
+      sx={{
+        background: "linear-gradient(135deg, #f3f4f6, #e5e7eb)", // Subtle light gradient
+        py: 8,
+      }}
+      id="experience"
+    >
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
+          maxWidth: "1300px",
+          mx: "auto",
+          px: 4,
         }}
       >
-        {projects.map((project) => (
-          <Project
-            key={project.id}
-            title={project.title}
-            description={project.description}
-            tags={project.tags}
-            img={project.image}
-            source={project.source}  // Add source prop
-            liveVersion={project.liveVersion}  // Add liveVersion prop
-          />
-        ))}
-      </Box>
+        <Typography
+          variant="h4"
+          sx={{
+            color: "#333", // Text color updated to contrast with the new background
+            textAlign: "center",
+            mb: 2,
+            fontWeight: 700, // Bold text for emphasis
+          }}
+        >
+          Let's take a look at what I've{" "}
+          <span style={{ color: "#1976D2" }}>built</span> so far
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {projects.map((project) => (
+            <Project
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              tags={project.tags}
+              img={project.image}
+              source={project.source} // Add source prop
+              liveVersion={project.liveVersion} // Add liveVersion prop
+            />
+          ))}
+        </Box>
 
-      <Stack />
+        <Stack />
+      </Box>
     </Box>
   );
 };

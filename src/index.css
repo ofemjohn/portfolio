@@ -1,12 +1,14 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
 
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #222222; /* Dark gray background color */
-  color: #ffffff; /* White text color */
+  background-color: #ffffff; /* White background */
+  color: #333333; /* Dark gray text for readability */
 }
 
 .code {
@@ -15,4 +17,10 @@ body {
 
 .link {
   cursor: pointer;
+  color: #1976D2; /* Blue link color */
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline; /* Adds underline for hover effect */
 }

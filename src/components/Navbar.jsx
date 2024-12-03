@@ -1,14 +1,9 @@
 import React from "react";
-
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-// import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-// import Button from "@mui/material/Button";
 import { styled } from "@mui/system";
 import { Link } from "react-scroll";
-
-// Define the johnteacher variable
 import johnteacher from "../media/johnteacher.jpg";
 
 const Navbar = () => {
@@ -16,7 +11,7 @@ const Navbar = () => {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: "1rem",
+    gap: "2rem", // Increased gap for better spacing
     [theme.breakpoints.down("sm")]: {
       marginTop: "2rem",
     },
@@ -31,11 +26,28 @@ const Navbar = () => {
     },
   }));
 
+  const NavLink = styled(Link)(({ theme }) => ({
+    fontSize: "18px", // Increased font size
+    fontWeight: "600", // Bold font weight
+    color: "#1976D2", // Custom blue color
+    textDecoration: "none",
+    cursor: "pointer",
+    "&:hover": {
+      color: "#1565b2", // Darker blue on hover
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "16px", // Smaller font size on mobile
+    },
+  }));
+
   return (
     <Box sx={{ flexGrow: 1, px: 5, py: 2, maxWidth: "1200px", mx: "auto" }}>
       <AppBar
         position="static"
-        style={{ background: "transparent", boxShadow: "none" }}
+        style={{
+          background: "transparent", // Transparent background
+          boxShadow: "none", // Remove shadow for a natural look
+        }}
       >
         <CustomToolbar>
           <Box
@@ -46,14 +58,14 @@ const Navbar = () => {
               gap: "1rem",
             }}
           >
-            {/* Style the johnteacher logo */}
+            {/* Styled Logo */}
             <Box
               component="img"
               sx={{
-                maxHeight: "60px",
-                maxWidth: "500px",
+                maxHeight: "80px", // Increased logo size
+                maxWidth: "80px", // Proportional width
                 objectFit: "cover",
-                borderRadius: "50%", // Add border-radius for rounded shape
+                borderRadius: "50%", // Keep circular shape
               }}
               src={johnteacher}
               alt="John Teacher"
@@ -64,15 +76,15 @@ const Navbar = () => {
           </Box>
 
           <CustomBox>
-            <Link to="home" className="link" smooth>
+            <NavLink to="home" smooth>
               Home
-            </Link>
-            <Link to="experience" className="link" smooth>
+            </NavLink>
+            <NavLink to="experience" smooth>
               Experience
-            </Link>
-            <Link to="about" className="link" smooth>
+            </NavLink>
+            <NavLink to="about" smooth>
               About
-            </Link>
+            </NavLink>
           </CustomBox>
         </CustomToolbar>
       </AppBar>
