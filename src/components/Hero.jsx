@@ -96,7 +96,7 @@ const Hero = () => {
               </span>{" "}
               at{" "}
               <span style={{ color: "#00C7FF" }}>
-                Kennesaw State University
+                Kennesaw State University, Georgia, USA
               </span>
               .
             </CustomSubtitle>
