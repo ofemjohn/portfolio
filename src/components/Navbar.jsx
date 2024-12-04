@@ -32,8 +32,23 @@ const Navbar = () => {
     color: "#1976D2", // Custom blue color
     textDecoration: "none",
     cursor: "pointer",
+    position: "relative", // For animation positioning
+    transition: "color 0.3s ease-in-out", // Smooth color transition
     "&:hover": {
       color: "#1565b2", // Darker blue on hover
+    },
+    "&::after": {
+      content: "''",
+      position: "absolute",
+      bottom: "-4px", // Position below text
+      left: 0,
+      width: "0%", // Start with no width
+      height: "2px", // Thickness of the underline
+      background: "#1976D2", // Blue underline color
+      transition: "width 0.3s ease-in-out", // Smooth animation
+    },
+    "&:hover::after": {
+      width: "100%", // Expand underline to full width
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "16px", // Smaller font size on mobile

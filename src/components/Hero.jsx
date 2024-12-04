@@ -89,8 +89,16 @@ const Hero = () => {
               <span style={{ color: "#00C7FF" }}>Petroleum Engineering</span>
             </CustomTitle>
             <CustomSubtitle>
-              Leveraging my skills in both software engineering and petroleum
-              engineering to create innovative solutions.
+              Leveraging my skills in software engineering and petroleum
+              engineering to create innovative solutions. Currently pursuing a{" "}
+              <span style={{ color: "#00C7FF" }}>
+                Master's in Information Technology
+              </span>{" "}
+              at{" "}
+              <span style={{ color: "#00C7FF" }}>
+                Kennesaw State University
+              </span>
+              .
             </CustomSubtitle>
             <Box display="flex" gap={2}>
               <CustomButton onClick={handleContactButtonClick}>

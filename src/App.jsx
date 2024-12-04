@@ -1,9 +1,10 @@
-import React from "react"; // Add this line
+import React from "react";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Experience from "./components/Experience";
 import About from "./components/About";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Experience />
       <About />
       <Footer />
+      <ScrollToTop /> {/* Add ScrollToTop here */}
     </>
   );
 }
