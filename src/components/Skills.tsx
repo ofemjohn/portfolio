@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -14,9 +13,11 @@ const skills = {
     { name: "Tailwind CSS", level: 88 },
   ],
   backend: [
+    { name: "Python", level: 95 },
     { name: "Node.js", level: 85 },
     { name: "Express", level: 82 },
     { name: "MongoDB", level: 78 },
+    { name: "MySQL", level: 85 },
     { name: "PostgreSQL", level: 75 },
     { name: "RESTful APIs", level: 88 },
     { name: "GraphQL", level: 70 },
@@ -25,6 +26,7 @@ const skills = {
     { name: "Git/GitHub", level: 92 },
     { name: "Docker", level: 75 },
     { name: "AWS", level: 68 },
+    { name: "Nginx", level: 80 },
     { name: "Jest", level: 80 },
     { name: "Webpack", level: 72 },
     { name: "Figma", level: 65 },
