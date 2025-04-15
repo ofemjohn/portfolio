@@ -41,6 +41,18 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header 
       className={cn(
@@ -87,49 +99,60 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div 
         className={cn(
-          "fixed inset-0 bg-navy-dark z-40 flex flex-col items-center justify-center transition-transform duration-300 md:hidden",
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-0 bg-navy-dark z-40 transition-all duration-300 md:hidden",
+          mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         )}
       >
-        <nav className="flex flex-col items-center space-y-8">
-          <a 
-            href="#experience" 
-            className="nav-link text-lg"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <span className="text-teal font-mono">01.</span> Experience
-          </a>
-          <a 
-            href="#projects" 
-            className="nav-link text-lg"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <span className="text-teal font-mono">02.</span> Projects
-          </a>
-          <a 
-            href="#about" 
-            className="nav-link text-lg"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <span className="text-teal font-mono">03.</span> About
-          </a>
-          <a 
-            href="#contact" 
-            className="nav-link text-lg"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <span className="text-teal font-mono">04.</span> Contact
-          </a>
-          <button 
-            onClick={() => {
-              handleResumeClick();
-              setMobileMenuOpen(false);
-            }}
-            className="btn btn-outline text-lg px-6 py-3"
-          >
-            Resume
-          </button>
-        </nav>
+        <div className="h-full w-full overflow-y-auto">
+          <nav className="flex flex-col items-center justify-center min-h-screen space-y-8 py-8">
+            {/* Close Button */}
+            <button
+              className="absolute top-4 right-4 text-slate-light hover:text-teal transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+            
+            <a 
+              href="#experience" 
+              className="nav-link text-lg w-full text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="text-teal font-mono">01.</span> Experience
+            </a>
+            <a 
+              href="#projects" 
+              className="nav-link text-lg w-full text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="text-teal font-mono">02.</span> Projects
+            </a>
+            <a 
+              href="#about" 
+              className="nav-link text-lg w-full text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="text-teal font-mono">03.</span> About
+            </a>
+            <a 
+              href="#contact" 
+              className="nav-link text-lg w-full text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="text-teal font-mono">04.</span> Contact
+            </a>
+            <button 
+              onClick={() => {
+                handleResumeClick();
+                setMobileMenuOpen(false);
+              }}
+              className="btn btn-outline text-lg px-6 py-3"
+            >
+              Resume
+            </button>
+          </nav>
+        </div>
       </div>
     </header>
   );
