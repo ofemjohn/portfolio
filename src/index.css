@@ -1,26 +1,110 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #ffffff; /* White background */
-  color: #333333; /* Dark gray text for readability */
+@layer base {
+  :root {
+    --background: 216 33% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 216 33% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 216 33% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 170 100% 70%;
+    --primary-foreground: 216 33% 12%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 170 100% 70%;
+    --accent-foreground: 216 33% 12%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 170 100% 70%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-navy text-slate-light font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-foreground font-semibold;
+  }
+
+  section {
+    @apply py-24 md:py-32;
+  }
 }
 
-.code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-.link {
-  cursor: pointer;
-  color: #1976D2; /* Blue link color */
-  text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline; /* Adds underline for hover effect */
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .nav-link {
+    @apply relative px-3 py-2 text-slate transition-colors duration-200 hover:text-teal;
+  }
+  
+  .nav-link.active {
+    @apply text-teal;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-teal text-navy-dark hover:bg-teal/90 px-4 py-2 rounded-md font-medium;
+  }
+  
+  .btn-outline {
+    @apply border border-teal text-teal hover:bg-teal/10 px-4 py-2 rounded-md font-medium;
+  }
+  
+  .card-project {
+    @apply relative overflow-hidden rounded-lg border border-slate-dark bg-navy-light p-6 transition-all duration-300 hover:shadow-lg hover:border-teal/50;
+  }
+  
+  .animate-stagger-delay-1 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-stagger-delay-2 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-stagger-delay-3 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-stagger-delay-4 {
+    animation-delay: 400ms;
+  }
+  
+  .animate-stagger-delay-5 {
+    animation-delay: 500ms;
+  }
 }
