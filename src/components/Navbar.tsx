@@ -46,7 +46,6 @@ const Navbar = () => {
   // Handle mobile menu state
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
       // Add click outside listener
       const handleClickOutside = (event: MouseEvent) => {
         if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
@@ -56,10 +55,7 @@ const Navbar = () => {
       document.addEventListener('mousedown', handleClickOutside);
       return () => {
         document.removeEventListener('mousedown', handleClickOutside);
-        document.body.style.overflow = 'unset';
       };
-    } else {
-      document.body.style.overflow = 'unset';
     }
   }, [mobileMenuOpen]);
 
@@ -77,7 +73,7 @@ const Navbar = () => {
   return (
     <header 
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled ? "py-3 backdrop-blur-lg bg-navy/80 shadow-md" : "py-5 bg-transparent"
       )}
     >
@@ -122,7 +118,7 @@ const Navbar = () => {
       <div 
         ref={mobileMenuRef}
         className={cn(
-          "fixed inset-0 bg-navy-dark z-40 transition-all duration-300 ease-in-out md:hidden",
+          "fixed top-0 left-0 right-0 bottom-0 bg-navy-dark z-40 transition-all duration-300 ease-in-out md:hidden",
           mobileMenuOpen 
             ? "translate-x-0 opacity-100 visible" 
             : "translate-x-full opacity-0 invisible"
