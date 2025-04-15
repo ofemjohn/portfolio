@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -27,11 +27,13 @@ const NavItem = ({
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const handleResumeClick = () => {
     window.open('https://docs.google.com/document/d/1jaHe7_8I7RyoIq6ixC1bw5oeDGru4KpLRbjTz6DC6HM/edit?usp=sharing', '_blank');
   };
 
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -41,17 +43,36 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // Handle mobile menu state
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      // Add click outside listener
+      const handleClickOutside = (event: MouseEvent) => {
+        if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+          setMobileMenuOpen(false);
+        }
+      };
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+        document.body.style.overflow = 'unset';
+      };
     } else {
       document.body.style.overflow = 'unset';
     }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
   }, [mobileMenuOpen]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, []);
 
   return (
     <header 
@@ -88,8 +109,9 @@ const Navbar = () => {
           
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-slate-light hover:text-teal"
+            className="md:hidden text-slate-light hover:text-teal transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -98,9 +120,12 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       <div 
+        ref={mobileMenuRef}
         className={cn(
-          "fixed inset-0 bg-navy-dark z-40 transition-all duration-300 md:hidden",
-          mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+          "fixed inset-0 bg-navy-dark z-40 transition-all duration-300 ease-in-out md:hidden",
+          mobileMenuOpen 
+            ? "translate-x-0 opacity-100 visible" 
+            : "translate-x-full opacity-0 invisible"
         )}
       >
         <div className="h-full w-full overflow-y-auto">
