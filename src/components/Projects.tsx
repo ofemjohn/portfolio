@@ -5,6 +5,24 @@ import { cn } from '@/lib/utils';
 // Projects data
 const projects = [
   {
+    title: "HomesUSA Realty Las Vegas",
+    description: "A modern real estate platform for the Las Vegas area, offering comprehensive property listings, community information, and real estate services. Features include property search, detailed neighborhood guides, and real-time market updates for Las Vegas, Henderson, and North Las Vegas areas.",
+    technologies: ["React", "Vite", "Tailwind CSS", "Supabase", "Vercel"],
+    githubLink: "https://github.com/ofemjohn/HomesUSA-RealtyLasVegasUSA",
+    liveLink: "https://homes-usa-realty-las-vegas-usa.vercel.app/",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    title: "Queen Naima's Couture",
+    description: "An elegant e-commerce platform for a high-end fashion boutique, featuring a sophisticated collection of African and contemporary fashion pieces. The website offers a seamless shopping experience with a modern design, product catalog, and secure checkout system.",
+    technologies: ["React", "Vite", "Tailwind CSS", "Stripe", "Vercel", "Supabase"],
+    githubLink: "https://github.com/ofemjohn/Queen-Naima-s-Couture",
+    liveLink: "https://queen-naima-s-couture.vercel.app/",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
     title: "Ekib Ekure Law LLC",
     description: "A professional legal website for Ekib Ekure Law LLC, offering expert counsel in Business Law, Personal Injury, and Criminal Defense in Atlanta. The site features a modern, professional design with comprehensive information about legal services and client resources.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "HTML", "CSS", "JavaScript"],
