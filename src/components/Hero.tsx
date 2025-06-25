@@ -3,7 +3,7 @@ import { ArrowRight, FileText } from 'lucide-react';
 
 const Hero = () => {
   const handleResumeClick = () => {
-    window.open('https://docs.google.com/document/d/1jaHe7_8I7RyoIq6ixC1bw5oeDGru4KpLRbjTz6DC6HM/edit?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1UODW17o3ZGtNfGoVdA28nFNYgKuExFEu/view?usp=sharing', '_blank');
   };
 
   return (

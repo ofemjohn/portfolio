@@ -16,6 +16,19 @@ const experiences = [
     skills: ["Web Development", "Technical Consulting", "Project Management", "Client Relations"]
   },
   {
+    title: "IT Support Specialist (Remote)",
+    company: "Cactus Serenity Behavioral Health Services",
+    date: "2024",
+    description: [
+      "Provide comprehensive IT support and maintenance services for cactusserenityhealth.com",
+      "Manage and maintain IT infrastructure and systems for a behavioral health services provider",
+      "Implement and troubleshoot various IT solutions to ensure business continuity",
+      "Provide technical assistance and support for all IT-related issues",
+      "Ensure security and optimal performance of IT systems for healthcare operations"
+    ],
+    skills: ["IT Support", "System Maintenance", "Remote Support", "Technical Troubleshooting", "IT Infrastructure", "System Security", "Healthcare IT"]
+  },
+  {
     title: "Social Media Manager",
     company: "RCCG City of David",
     date: "2024 - Present",

@@ -123,11 +123,11 @@ const About = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="md:text-right">
                     <h4 className="text-foreground font-semibold">Master of Science in Information Technology</h4>
-                    <p className="text-teal">2022 - Present</p>
+                    <p className="text-teal">May 2025 - Present</p>
                   </div>
                   <div>
                     <p className="text-lg">Kennesaw State University</p>
-                    <p className="text-slate">Kennesaw, Georgia, USA</p>
+                    <p className="text-slate">Kennesaw, GA</p>
                     <p className="text-slate">Focus on software engineering, cloud computing, and data analytics.</p>
                   </div>
                 </div>
